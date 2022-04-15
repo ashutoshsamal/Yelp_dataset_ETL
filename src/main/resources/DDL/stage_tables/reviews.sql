@@ -1,9 +1,9 @@
 
 
 
-DROP TABLE IF EXISTS yelp_dataset_etl.reviews_fact;
+DROP TABLE IF EXISTS yelp_dataset_etl.reviews_fact_stage;
 
-CREATE TABLE IF NOT EXISTS yelp_dataset_etl.reviews_fact
+CREATE TABLE IF NOT EXISTS yelp_dataset_etl.reviews_fact_stage
 (
 
 review_table_pk string,

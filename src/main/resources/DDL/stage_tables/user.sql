@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS yelp_dataset_etl.user_dim;
+DROP TABLE IF EXISTS yelp_dataset_etl.user_dim_stage;
 
-CREATE TABLE IF NOT EXISTS yelp_dataset_etl.user_dim
+CREATE TABLE IF NOT EXISTS yelp_dataset_etl.user_dim_stage
 (
 user_table_pk string,
 user_name string,
@@ -23,12 +23,5 @@ cool_compliment_count integer,
 funny_compliment_count integer,
 write_compliment_count integer,
 photo_compliment_count integer,
-
-
-
-
-
-
-
 
 )

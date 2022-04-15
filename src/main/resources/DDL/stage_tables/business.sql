@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS yelp_dataset_etl.business_dim;
+DROP TABLE IF EXISTS yelp_dataset_etl.business_dim_stage;
 
-CREATE TABLE IF NOT EXISTS yelp_dataset_etl.business_dim
+CREATE TABLE IF NOT EXISTS yelp_dataset_etl.business_dim_stage
 (
 
 business_table_pk string,
