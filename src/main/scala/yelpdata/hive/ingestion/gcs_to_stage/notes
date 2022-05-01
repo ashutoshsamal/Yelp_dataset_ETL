@@ -1,0 +1,45 @@
+buisness
+
+
+
+gcloud auth activate-service-account 406817105323-compute@developer.gserviceaccount.com --key-file=gs://yelp_etl_bucket/raw/western-storm-344011-968fdd62d883.json --project=western-storm-344011
+
+
+val rawDF = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/test/academic_dataset_business_part1.json")
+
+rawDF.withColumn("categories",split(col("categories"),",").as("NameArray"))
+
+rawDF.withColumn("categories",split(col("categories"),",")).withColumn("categories",explode($"categories")).show()
+
+
+
+rawDF.withColumn("categories",split(col("categories"),",")).withColumn("categories",explode($"categories")).
+select(
+      col("business_id"),
+      col("name").as("business_name"),
+      col("address"),
+      col("city"),
+      col("state"),
+      col("postal_code").as("zip_code"),
+      col("latitude"),
+      col("longitude"),
+      col("stars").as("star_rating"),
+      col("review_count"),
+      col("is_open"),
+      col("attributes"),
+      col("categories"),
+      split(col("hours.Monday"),"-").as("monday"),
+      split(col("hours.Tuesday"),"-").as("tuesday"),
+      split(col("hours.Wednesday"),"-").as("Wednesday"),
+      split(col("hours.Thursday),"-").as("thursday"),
+      split(col("hours.Friday"),"-").as("friday"),
+      split(col("hours.Saturday"),"-").as("saturday"),
+      split(col("hours.Sunday"),"-").as("sunday"),
+      row_number().over(
+      Window.partitionBy(col("business_id")).as("row_num")
+      )
+      )
+
+
+  rawDF.withColumn("categories",split(col("categories"),",")).withColumn("categories",explode($"categories")).select(col("business_id"),col("name").as("business_name"),col("address"),col("city"),col("state"),col("postal_code").as("zip_code"),col("latitude"),col("longitude"),col("stars").as("star_rating"),col("review_count"),col("is_open")
+  ,col("attributes"),col("categories"),split(col("hours.Monday"),"-").as("monday"),split(col("hours.Tuesday"),"-").as("tuesday")).withColumn("rn",row_number().over(Window.partitionBy(col("business_id")))).show()
