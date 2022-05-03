@@ -3,12 +3,15 @@ package yelpdata.hive.ingestion.gcs_to_stage
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql._
+
 
 object userToStage extends App {
 
   val spark=SparkSession.builder()
   .appName("UserStagging")
-    .master("local[2]")
+    .master("yarn")
+    .enableHiveSupport()
     .getOrCreate()
 
 
@@ -17,17 +20,22 @@ object userToStage extends App {
 
   val userDedup=deduplication(rawjsonDf)
 
-  val userStage=stagedataFrame(userDedup)
-  userStage.show(5)
-
-
+  val user_stagetable=stagedataFrame(userDedup)
+  user_stagetable.show(5)
+  user_stagetable.printSchema()
+  
+  
+  //loading to stage hive table
+  user_stagetable.write.format("hive")
+    .mode(SaveMode.Overwrite)
+    .insertInto("yelp_dataset_etl.user_dim_stage")
 
   def stagedataFrame(dedup:DataFrame):DataFrame={
     dedup.select(
       col("user_id"),
       col("name"),
       col("review_count"),
-      col("joined_data"),
+      col("joined_date"),
       col("useful").as("useful_votes_count"),
       col("funny").as("funny_votes_count"),
       col("fans").as("fans_count"),
@@ -44,8 +52,8 @@ object userToStage extends App {
       col("compliment_funny").as("funny_compliment_count"),
       col("compliment_writer").as("writer_compliment_count"),
       col("compliment_photos").as("photos_compliment_count")
-
     )
+      .withColumn("upd_ts",current_timestamp())
   }
 
 

@@ -1,17 +1,17 @@
 package yelpdata.hive.ingestion.gcs_to_stage
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.catalyst.ScalaReflection
+
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types.{DataTypes, StructType}
+
+import org.apache.spark.sql._
 
 object businessToStage extends App{
 
   val spark=SparkSession.builder()
     .appName("buisnessStagging")
-    .master("local[2]")
+    .master("yarn")
     .getOrCreate()
 
   // Reading raw json to the DataFrame
@@ -26,6 +26,11 @@ object businessToStage extends App{
 
   business_stagetable.printSchema()
   business_stagetable.show(50)
+
+  //loading to stage hive table
+  business_stagetable.write.format("hive")
+    .mode(SaveMode.Overwrite)
+    .insertInto("yelp_dataset_etl.business_dim_stage")
 
 
 
@@ -45,7 +50,7 @@ object businessToStage extends App{
          .withColumn("saturday_close_time",date_format(element_at(col("saturday"),2),"HH:mm:ss"))
          .withColumn("sunday_open_time",date_format(element_at(col("sunday"),1),"HH:mm:ss"))
          .withColumn("sunday_close_time",date_format(element_at(col("sunday"),2),"HH:mm:ss"))
-         .withColumn("upd_ts",date_format(lit(current_timestamp()),"yyyy-MM-dd"))
+         .withColumn("upd_ts",current_timestamp())
          .drop("monday","tuesday","Wednesday","thursday","friday","saturday","sunday","row_num")
 
 
@@ -54,11 +59,11 @@ object businessToStage extends App{
 
 
   def deduplication(raw_data: DataFrame):DataFrame={
-  raw_data.withColumn("categories",split(col("categories"),",")).withColumn("categories",explode(col("categories"))).
+  raw_data.withColumn("categories",split(col("categories"),",")).withColumn("category",explode(col("categories"))).
     select(
       col("business_id"),
       col("name").as("business_name"),
-      col("categories"),
+      col("category"),
       col("address"),
       col("city"),
       col("state"),
@@ -67,8 +72,7 @@ object businessToStage extends App{
       col("longitude"),
       col("stars").as("star_rating"),
       col("review_count"),
-      col("is_open"),
-      col("attributes"),
+      col("is_open").as("open_ind"),
       split(col("hours.Monday"),"-").as("monday"),
       split(col("hours.Tuesday"),"-").as("tuesday"),
       split(col("hours.Wednesday"),"-").as("Wednesday"),
