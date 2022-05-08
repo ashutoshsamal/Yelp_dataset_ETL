@@ -9,12 +9,14 @@ object reviewToStage extends App {
 
   val spark=SparkSession.builder()
     .appName("ReviewStagging")
+    .config("spark.sql.warehouse.dir", "gs://yelp_etl_bucket/stage_tables/")
+    .enableHiveSupport()
     .master("yarn")
     .getOrCreate()
 
 
   // Reading raw json to the DataFrame
-  val rawjsonDf = spark.read.option("multiline","true").json("/Users/a0s0iro/Desktop/Yelp_data/test_json/review.json")
+  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/test_json/review.json")
 
   //Removing duplicate records if any
   val review_dedup=deduplication(rawjsonDf)
@@ -25,6 +27,33 @@ object reviewToStage extends App {
 
     review_stage.show(5)
   review_stage.printSchema()
+
+
+  // delete existing table
+  spark.sql("DROP TABLE IF EXISTS yelp_dataset_etl.reviews_fact_stage;")
+
+  // create hive table
+  spark.sql("""CREATE TABLE IF NOT EXISTS yelp_dataset_etl.reviews_fact_stage
+              |(
+              |
+              |review_id string,
+              |user_id string,
+              |business_id string,
+              |stars float,
+              |review_text string,
+              |useful_votes_count int,
+              |funny_votes_count int,
+              |cool_votes_count int,
+              |review_timestamp timestamp,
+              |review_month integer,
+              |review_year integer,
+              |review_day integer,
+              |upd_ts timestamp
+              |)
+              |stored as parquet
+              |LOCATION
+              |'gs://yelp_etl_bucket/stage_tables/review';""".stripMargin)
+
 
   //loading to stage hive table
   review_stage.write.format("hive")

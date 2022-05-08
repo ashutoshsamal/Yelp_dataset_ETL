@@ -12,11 +12,30 @@ object tipToStage extends App {
     .master("yarn")
     .getOrCreate()
 
-  val rawjsonDf = spark.read.option("multiline","true").json("/Users/a0s0iro/Desktop/Yelp_data/test_json/tip.json")
+  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/test_json/tip.json")
 
   val tipStagetable=stagedataFrame(rawjsonDf)
   tipStagetable.printSchema()
   tipStagetable.show(5)
+
+
+  // delete existing table
+  spark.sql("DROP TABLE IF EXISTS yelp_dataset_etl.tip_fact_stage;")
+
+  // create hive table
+  spark.sql("""CREATE  TABLE IF NOT EXISTS yelp_dataset_etl.tip_fact_stage
+              |(
+              |business_id string,
+              |user_id string,
+              |compliment_count integer,
+              |tip_timestamp timestamp,
+              |text string,
+              |upd_ts timestamp
+              |)
+              |stored as parquet
+              |LOCATION
+              |'gs://yelp_etl_bucket/stage_tables/tip';""".stripMargin)
+
 
   //loading to stage hive table
   tipStagetable.write.format("hive")

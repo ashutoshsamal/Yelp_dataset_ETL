@@ -12,13 +12,33 @@ object checkinToStage extends  App {
     .master("yarn")
     .getOrCreate()
 
-
-  val rawjsonDf = spark.read.option("multiline","true").json("/Users/a0s0iro/Desktop/Yelp_data/test_json/checkin.json")
+  spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
+  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/test_json/checkin.json")
 
   val checkinStage=stagedataFrame(rawjsonDf)
 
   checkinStage.printSchema()
   checkinStage.show(5)
+
+
+  // delete existing table
+  spark.sql("DROP TABLE IF EXISTS yelp_dataset_etl.checkin_stage;")
+
+  // create hive table
+  spark.sql("""CREATE TABLE IF NOT EXISTS yelp_dataset_etl.checkin_stage
+              |(
+              |business_id string,
+              |checkin_time_stamp timestamp,
+              |cchekin_year int,
+              |checkin_month int,
+              |checkin_day int,
+              |upd_ts timestamp
+              |)
+              |stored as parquet
+              |LOCATION
+              |'gs://yelp_etl_bucket/stage_tables/checkin';""".stripMargin)
+
+
 
   //loading to stage hive table
   checkinStage.write.format("hive")

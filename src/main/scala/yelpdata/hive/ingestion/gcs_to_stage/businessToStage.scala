@@ -11,11 +11,13 @@ object businessToStage extends App{
 
   val spark=SparkSession.builder()
     .appName("buisnessStagging")
+    .config("spark.sql.warehouse.dir", "gs://yelp_etl_bucket/stage_tables/")
+    .enableHiveSupport()
     .master("yarn")
     .getOrCreate()
 
   // Reading raw json to the DataFrame
-  val rawjsonDf = spark.read.option("multiline","true").json("/Users/a0s0iro/Desktop/Yelp_data/test_json/buisness_test.json")
+  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/raw/business_data/")
 
   //Removing duplicate records if any
   val business_dedup=deduplication(rawjsonDf)
@@ -25,7 +27,54 @@ object businessToStage extends App{
 
 
   business_stagetable.printSchema()
-  business_stagetable.show(50)
+  business_stagetable.show(5)
+
+  // delete existing table
+  spark.sql("DROP TABLE IF EXISTS yelp_dataset_etl.business_dim_stage")
+  spark.sql("CREATE DATABASE IF NOT EXISTS yelp_dataset_etl")
+
+  // create hive table
+  spark.sql("""CREATE TABLE IF NOT EXISTS yelp_dataset_etl.business_dim_stage
+              |(
+              |business_id string,
+              |business_name string,
+              |category string,
+              |address string,
+              |city string,
+              |state string,
+              |zip_code string,
+              |latitude float,
+              |longitude float,
+              |star_rating float,
+              |review_count int,
+              |open_ind smallint,
+              |
+              |monday_open_time string,
+              |monday_close_time string,
+              |
+              |tuesday_open_time string,
+              |tuesday_close_time string,
+              |
+              |wednesday_open_time string,
+              |wednesday_close_time string,
+              |
+              |thursday_open_time string,
+              |thursday_close_time string,
+              |
+              |friday_open_time string,
+              |friday_close_time string,
+              |
+              |saturday_open_time string,
+              |saturday_close_time string,
+              |
+              |sunday_open_time string,
+              |sunday_close_time string,
+              |
+              |upd_ts timestamp
+              |)
+              |stored as parquet
+              |LOCATION
+              |'gs://yelp_etl_bucket/stage_tables/business' """.stripMargin)
 
   //loading to stage hive table
   business_stagetable.write.format("hive")
@@ -81,7 +130,7 @@ object businessToStage extends App{
     split(col("hours.Saturday"),"-").as("saturday"),
     split(col("hours.Sunday"),"-").as("sunday"),
     row_number().over(
-      Window.partitionBy(col("business_id"),col("categories")).orderBy("review_count")).as("row_num")
-    ).filter("row_num==1").orderBy("business_name")
+      Window.partitionBy(col("business_id"),col("category")).orderBy("review_count")).as("row_num")
+    ).filter("row_num==1")
   }
 }
