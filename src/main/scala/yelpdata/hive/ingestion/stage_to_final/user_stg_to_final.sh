@@ -198,8 +198,9 @@ query5="
 DROP TABLE IF EXISTS yelp_dataset_etl.user_dim_final;" +
 create_final + "
 INSERT OVERWRITE TABLE yelp_dataset_etl.user_dim_final  select * from user_temp;
-
 "
+
+
 
 
 

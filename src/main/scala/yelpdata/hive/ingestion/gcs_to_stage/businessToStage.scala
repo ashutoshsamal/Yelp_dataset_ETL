@@ -17,7 +17,7 @@ object businessToStage extends App{
     .getOrCreate()
 
   // Reading raw json to the DataFrame
-  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/raw/business_data/")
+  val rawjsonDf = spark.read.option("multiline","true").json("gs://yelp_etl_bucket/test/business_incre_test/business_incre.json")
 
   //Removing duplicate records if any
   val business_dedup=deduplication(rawjsonDf)
@@ -29,9 +29,11 @@ object businessToStage extends App{
   business_stagetable.printSchema()
   business_stagetable.show(5)
 
+  spark.sql("CREATE DATABASE IF NOT EXISTS yelp_dataset_etl")
+
   // delete existing table
   spark.sql("DROP TABLE IF EXISTS yelp_dataset_etl.business_dim_stage")
-  spark.sql("CREATE DATABASE IF NOT EXISTS yelp_dataset_etl")
+
 
   // create hive table
   spark.sql("""CREATE TABLE IF NOT EXISTS yelp_dataset_etl.business_dim_stage
@@ -122,13 +124,13 @@ object businessToStage extends App{
       col("stars").as("star_rating"),
       col("review_count"),
       col("is_open").as("open_ind"),
-      split(col("hours.Monday"),"-").as("monday"),
-      split(col("hours.Tuesday"),"-").as("tuesday"),
-      split(col("hours.Wednesday"),"-").as("Wednesday"),
-      split(col("hours.Thursday"),"-").as("thursday"),
-    split(col("hours.Friday"),"-").as("friday"),
-    split(col("hours.Saturday"),"-").as("saturday"),
-    split(col("hours.Sunday"),"-").as("sunday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("monday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("tuesday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("Wednesday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("thursday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("friday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("saturday"),
+      when(col("hours").isNull,null).otherwise(split(col("hours.Monday"),"-")).as("sunday"),
     row_number().over(
       Window.partitionBy(col("business_id"),col("category")).orderBy("review_count")).as("row_num")
     ).filter("row_num==1")
