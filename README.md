@@ -15,7 +15,10 @@ used data proc cluster in GCP to deploy my code.
 # DATASET
 
 Yelp data set contains five types of data Business,review,user,checkin,tip. I tried to cover different ways to process
-data so 
+data so followed different ways of ETL for all this tables as follows:-
+
+### Business
+
 
 
 
