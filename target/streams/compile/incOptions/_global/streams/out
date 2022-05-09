@@ -1,0 +1,53 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /Users/a0s0iro/Desktop/Yelp_dataset_ETL/target/scala-2.12/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	workflowrunner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	workflowrunner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	workflowrunner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	tipToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	reviewToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	checkinToStage$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	businessToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	userToStage.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /Users/a0s0iro/Desktop/Yelp_dataset_ETL/target/scala-2.12/classes.bak[0m

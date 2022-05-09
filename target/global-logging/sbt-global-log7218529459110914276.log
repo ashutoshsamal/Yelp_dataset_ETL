@@ -1,0 +1,122 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.6.2 (Amazon.com Inc. Java 1.8.0_322)
+[debug]       Load.loadUnit: plugins took 103.452903ms
+[debug]       Load.loadUnit: defsScala took 0.355819ms
+[debug] [Loading] Scanning directory /Users/a0s0iro/.sbt/1.0/plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /Users/a0s0iro/.sbt/1.0/plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 50.167843 ms
+[debug]           Load.resolveProject(global-plugins) took 52.262606ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: /Users/a0s0iro/.sbt/1.0/plugins, plugins: List(<none>))) took 135.750426ms
+[debug] [Loading] Done in /Users/a0s0iro/.sbt/1.0/plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 160.146248ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.229941ms
+[debug]     Load.loadUnit(file:/Users/a0s0iro/.sbt/1.0/plugins/, ...) took 359.74936ms
+[debug]   Load.apply: load took 851.10857ms
+[debug]   Load.apply: resolveProjects took 5.054821ms
+[debug]   Load.apply: finalTransforms took 46.771771ms
+[debug]   Load.apply: config.delegates took 5.691248ms
+[debug]   Load.apply: Def.make(settings)... took 312.483676ms
+[debug]   Load.apply: structureIndex took 75.985038ms
+[debug]   Load.apply: mkStreams took 1.981645ms
+[info] loading global plugins from /Users/a0s0iro/.sbt/1.0/plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 2791.03396ms
+[debug]           Load.loadUnit: plugins took 16.064281ms
+[debug]           Load.loadUnit: defsScala took 0.003249ms
+[debug] [Loading] Scanning directory /Users/a0s0iro/Desktop/Yelp_dataset_ETL/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /Users/a0s0iro/Desktop/Yelp_dataset_ETL/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.732172 ms
+[debug]               Load.resolveProject(yelp_dataset_etl-build) took 17.152276ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id yelp_dataset_etl-build, base: /Users/a0s0iro/Desktop/Yelp_dataset_ETL/project, plugins: List(<none>))) took 19.652172ms
+[debug] [Loading] Done in /Users/a0s0iro/Desktop/Yelp_dataset_ETL/project, returning: (yelp_dataset_etl-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 21.320683ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.032327ms
+[debug]         Load.loadUnit(file:/Users/a0s0iro/Desktop/Yelp_dataset_ETL/project/, ...) took 38.129682ms
+[debug]       Load.apply: load took 39.645947ms
+[debug]       Load.apply: resolveProjects took 0.137049ms
+[debug]       Load.apply: finalTransforms took 6.754725ms
+[debug]       Load.apply: config.delegates took 0.346367ms
+[debug]       Load.apply: Def.make(settings)... took 58.800527ms
+[debug]       Load.apply: structureIndex took 17.742068ms
+[debug]       Load.apply: mkStreams took 0.001925ms
+[info] loading project definition from /Users/a0s0iro/Desktop/Yelp_dataset_ETL/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 316.937869ms
+[debug]     Load.loadUnit: defsScala took 0.002787ms
+[debug] [Loading] Scanning directory /Users/a0s0iro/Desktop/Yelp_dataset_ETL
+[debug]       Load.loadUnit: mkEval took 6.646689ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.573334 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 2.100673ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: /Users/a0s0iro/Desktop/Yelp_dataset_ETL, plugins: List(<none>))) took 4.574666ms
+[debug] [Loading] Done in /Users/a0s0iro/Desktop/Yelp_dataset_ETL, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 1751.713102ms
+[debug]     Load.loadUnit: cleanEvalClasses took 22.827603ms
+[debug]   Load.loadUnit(file:/Users/a0s0iro/Desktop/Yelp_dataset_ETL/, ...) took 2092.056903ms
+[debug] Load.apply: load took 2093.20076ms
+[debug] Load.apply: resolveProjects took 0.137641ms
+[debug] Load.apply: finalTransforms took 5.514483ms
+[debug] Load.apply: config.delegates took 0.328994ms
+[debug] Load.apply: Def.make(settings)... took 49.388485ms
+[debug] Load.apply: structureIndex took 20.804903ms
+[debug] Load.apply: mkStreams took 0.003528ms
+[info] set current project to Yelp_dataset_ETL (in build file:/Users/a0s0iro/Desktop/Yelp_dataset_ETL/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:///Users/a0s0iro/.sbt/1.0/server/43f43473a5e92c95d171/sock
+[debug] Writing bsp connection file
+[info] started sbt server

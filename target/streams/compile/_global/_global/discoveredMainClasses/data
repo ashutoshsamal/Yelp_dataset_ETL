@@ -1,0 +1,1 @@
+["yelpdata.hive.ingestion.gcs_to_stage.businessToStage","yelpdata.hive.ingestion.gcs_to_stage.checkinToStage","yelpdata.hive.ingestion.gcs_to_stage.reviewToStage","yelpdata.hive.ingestion.gcs_to_stage.tipToStage","yelpdata.hive.ingestion.gcs_to_stage.userToStage"]
