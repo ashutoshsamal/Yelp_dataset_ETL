@@ -17,7 +17,7 @@ used data proc cluster in GCP to deploy my code.
 Yelp data set contains five types of data Business,review,user,checkin,tip. I tried to cover different ways to process
 data so followed different ways of ETL for all this tables as follows:-
 
-### Business:-
+## Business:-
 business.json file have the following structure
    
 {
@@ -85,6 +85,19 @@ business.json file have the following structure
         "Saturday": "10:00-21:00"
     }
 }
+
+Let's make some assumption for our project
+
+### How we receive the data ?
+
+Let's assume a json file is created as soon as there is any changes in the existing business data 
+(i.e any changes in star rating,category etc) or if any new business is added and this json files are pushed to any 
+kafka topic and we dumped the data from kafka topic to the gs bucket for futher process.
+
+### moving data from gcs bucket to hive stage table
+As json files are getting created as soon as there is some changes in the existing data there is chance of duplicate 
+records in the kafka topic as we run our ETL every hour/day/week   
+
 
 
 
