@@ -18,11 +18,12 @@ Yelp data set contains five types of data Business,review,user,checkin,tip. I tr
 data so followed different ways of ETL for all this tables as follows:-
 
 ### Business:-
-business.json file have following structure
-    // sas
+business.json file have the following structure
+   
 {
-   // string, 22 character unique string business id
-   " business_id": "tnhfDv5Il8EaGSXZGiuQGg",
+
+    // string, 22 character unique string business id
+    " business_id": "tnhfDv5Il8EaGSXZGiuQGg",
 
     // string, the business's name
     "name": "Garaje",
