@@ -123,7 +123,9 @@ update the final tabel
 -> As we update the table in every run ,we are losing the historical data .So I have created a historical table to 
 with same schema as the final table but with 3 nested partition(year,month,day)
 
--> We move load this table every day/week for the snapshot table(i.e current state) to the appropriate partition
+-> We load this table every day/week from the snapshot table(i.e current state) to the appropriate partition.
+
+-> Hive command for this : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
 
 
 
