@@ -20,7 +20,7 @@ data so followed different ways of ETL for all this tables as follows:-
 ## Business:-
 business.json file have the following structure
    
-{
+    {
 
     // string, 22 character unique string business id
     " business_id": "tnhfDv5Il8EaGSXZGiuQGg",
@@ -84,7 +84,7 @@ business.json file have the following structure
         "Sunday": "11:00-18:00",
         "Saturday": "10:00-21:00"
     }
-}
+    }
 
 
 
@@ -111,12 +111,12 @@ records in the kafka topic if any business have multiple changes between two run
 ### Inremental load of final table
 
 -> As we have delta data(i.e All changes from the last run) in the stage table we can perform incremental load and 
-update the final tabel
+update the final table
 
 -> I have maintained a final snapshot table to store the current state of all the records we update the records in this
   table incrementally.
 
---> hive command for this steps : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
+-> Hive commands for this step : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
 
 ### Preserving historical changes of the data
 
@@ -125,7 +125,7 @@ with same schema as the final table but with 3 nested partition(year,month,day)
 
 -> We load this table every day/week from the snapshot table(i.e current state) to the appropriate partition.
 
--> Hive command for this : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
+-> Hive commands for this : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
 
 
 
