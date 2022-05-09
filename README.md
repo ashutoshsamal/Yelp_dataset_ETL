@@ -86,6 +86,8 @@ business.json file have the following structure
     }
 }
 
+
+
 Let's make some assumption for our project
 
 ### How we receive the data ?
@@ -94,9 +96,18 @@ Let's assume a json file is created as soon as there is any changes in the exist
 (i.e any changes in star rating,category etc) or if any new business is added and this json files are pushed to any 
 kafka topic and we dumped the data from kafka topic to the gs bucket for futher process.
 
-### moving data from gcs bucket to hive stage table
-As json files are getting created as soon as there is some changes in the existing data there is chance of duplicate 
-records in the kafka topic as we run our ETL every hour/day/week   
+### Moving data from gcs bucket to hive stage table
+-> I exploded the category column and chose business_id and category as my grain so we might have repeated  business_ids 
+but combination of business id and category will be unique
+
+-> As json files are getting created as soon as there is some changes in the existing data there is chance of duplicate 
+records in the kafka topic if any business have multiple changes between two runs of our ETL.
+
+-> So I did deduplication of 
+
+
+
+
 
 
 
