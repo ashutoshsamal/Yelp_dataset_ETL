@@ -103,7 +103,20 @@ but combination of business id and category will be unique
 -> As json files are getting created as soon as there is some changes in the existing data there is chance of duplicate 
 records in the kafka topic if any business have multiple changes between two runs of our ETL.
 
--> So I did deduplication of of data after reading it in spark (code -/src/main/scala/yelpdata/hive/ingestion/gcs_to_stage/businessToStage.scala)
+-> So I did deduplication of of data after reading it in spark 
+(/src/main/scala/yelpdata/hive/ingestion/gcs_to_stage/businessToStage.scala)
+
+-> After the ETL loaded the data into the stage hive table for incremental load of final  table
+
+### Inremental load of final table
+
+-> As we have delta data(i.e All changes from the last run) in the stage table we can perform incremental load and 
+update the final tabel
+
+-> I have maintained a final snapshot table to store the current state of all the records we update the records in this
+  table incrementally.
+
+--> hive command for this steps : /src/main/scala/yelpdata/hive/ingestion/stage_to_final/business_stg_to_final_hive.sh
 
 
 
