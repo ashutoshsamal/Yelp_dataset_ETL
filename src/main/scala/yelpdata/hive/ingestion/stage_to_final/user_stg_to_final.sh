@@ -5,9 +5,10 @@
  #  scd_end_date TIMESTAMP, -- end date and time (9999-12-31 23:59:59 by default)
  #  scd_active int, -- whether it's the latest version or not
 
-#-----Intial load--------#
+#-----INITIAL LOAD--------#
 
 #create final table
+
 create_final="
 CREATE TABLE IF NOT EXISTS yelp_dataset_etl.user_dim_final
 (
@@ -53,7 +54,7 @@ LOCATION
 insert_query_intial="
 INSERT INTO yelp_dataset_etl.user_dim_final
 select *,
-from_unixtime(unix_timestamp()),
+current_timestamp(),
 null,
 1
 from
