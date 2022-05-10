@@ -7,14 +7,14 @@
 
 # SUMMERY
 
-This is an end to end data engineering project for YELP data set (https://www.yelp.com/dataset/documentation/main) that 
-I build to get a hands-on experience on spark and hadoop ecosystem.I have used scala as a programing language , 
-spark as compute engine and hive as warehouse and used data proc cluster in GCP to deploy my code. 
+This is an end to end data engineering project for YELP data set  that I build to get a hands-on experience on spark and
+hadoop ecosystem.I have used scala as a programing language,spark as compute engine and hive as warehouse and used 
+data proc cluster in GCP to deploy my code. 
 
 # DATASET
 
 Yelp data set contains five types of data Business,review,user,checkin,tip.I took review and tips as fact table in my 
-warehouse and other tables as their dimensions.
+warehouse and other tables as their dimensions.Details about the rew data that we receive can be found here :https://www.yelp.com/dataset/documentation/main
 
 # ETL 
 I tried to cover different ways to process data so followed different ways of ETL for all this tables as follows:-
@@ -23,7 +23,7 @@ I tried to cover different ways to process data so followed different ways of ET
 
 Let's assume there is a firm which collecting this data for their analytical purpose and a json file is created as soon 
 as there is any new additions  to any of the five data or if there is any changes in the existing business or user data 
-(i.e any changes in star rating,category,fan etc. ) or  and this json files are pushed to any kafka topic, and we're
+(i.e any changes in star rating,category,fan etc. )  and this json files are pushed to any kafka topic, and we're
 dumping the data from kafka topic to the gs bucket for further process.
 
 
