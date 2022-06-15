@@ -1,0 +1,35 @@
+[
+  {
+  "review_id": "saUsX_uimxRlCVr67Z4Jig",
+  "user_id": "8g_iMtfSiwikVnbP2etR0A",
+  "business_id": "YjUWPpI6HXG530lwP-fb2A",
+  "stars": 3.0,
+  "useful": 0,
+  "funny": 0,
+  "cool": 0,
+  "text": "Family diner. Had the buffet. Eclectic assortment: a large chicken leg, fried jalapeño, tamale, two rolled grape leaves, fresh melon. All good. Lots of Mexican choices there. Also has a menu with breakfast served all day long. Friendly, attentive staff. Good place for a casual relaxed meal with no expectations. Next to the Clarion Hotel.",
+  "date": "2014-02-05 20:30:30"
+ },
+ {
+  "review_id": "AqPFMleE6RsU23_auESxiA",
+  "user_id": "_7bHUi9Uuf5__HHc_Q8guQ",
+  "business_id": "kxX2SOes4o-D3ZQBkiMRfA",
+  "stars": 5.0,
+  "useful": 1,
+  "funny": 0,
+  "cool": 1,
+  "text": "Wow!  Yummy, different,  delicious.   Our favorite is the lamb curry and korma.  With 10 different kinds of naan!!!  Don't let the outside deter you (because we almost changed our minds)...go in and try something new!   You'll be glad you did!",
+  "date": "2015-01-04 00:01:03"
+},
+{
+ "review_id": "AqPFMleE6RsU23_auESxiA",
+ "user_id": "_7bHUi9Uuf5__HHc_Q8guQ",
+ "business_id": "kxX2SOes4o-D3ZQBkiMRfA",
+ "stars": 4.0,
+ "useful": 1,
+ "funny": 0,
+ "cool": 1,
+ "text": "Wow!  Yummy,delicious.   Our favorite is the lamb curry and korma.  With 10 different kinds of naan!!!  Don't let the outside deter you (because we almost changed our minds)...go in and try something new!   You'll be glad you did!",
+ "date": "2015-01-04 00:04:03"
+}
+]
